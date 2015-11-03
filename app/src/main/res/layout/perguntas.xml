@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    tools:context=".Perguntas">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtQuestion"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.77"
+        android:textSize="18dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:id="@+id/btnA"
+            android:visibility="visible" />
+
+        <Button
+            android:layout_width="198dp"
+            android:layout_height="wrap_content"
+            android:text="B"
+            android:id="@+id/btnB"
+            android:layout_gravity="right|top"
+            android:visibility="visible" />
+
+        <Button
+            android:layout_width="191dp"
+            android:layout_height="wrap_content"
+            android:text="C"
+            android:id="@+id/btnC"
+            android:layout_gravity="left|bottom"
+            android:visibility="visible" />
+
+        <Button
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:text="D"
+            android:id="@+id/btnD"
+            android:layout_gravity="right|bottom"
+            android:visibility="visible" />
+
+    </FrameLayout>
+
+</LinearLayout>

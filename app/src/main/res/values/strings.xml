@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Projeto de Engenharia de Software</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="jogar">Jogar</string>
+    <string name="Creditos">Creditos</string>
+    <string name="title_activity_test">test</string>
+</resources>
