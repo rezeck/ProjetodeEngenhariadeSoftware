@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <question>
+        <id>1</id>
+        <enunciate>Tendo em vista que o desenvolvimento em Cascata é o mais usado no desenvolvimento tradicional, quais das características a seguir NÃO representam uma desvantagem desse modelo segundo os princípios ágeis?</enunciate>
+        <alternativeA>O término de cada etapa do processo está associado à uma documetação padrão.</alternativeA>>
+        <alternativeB>Torna o processo de desenvolvimento estruturado.</alternativeB>
+        <alternativeC>O cliente não participa do desenvovimento.</alternativeC>
+        <alternativeD>Ao longo do desenvolvimento, não é permitida a atualização ou redefinição de fases já finalizadas.</alternativeD>
+        <solution>2</solution>
+    </question>
+
+    <question>
+        <id>2</id>
+        <enunciate>Estão entre os valores do manifesto ágil, EXCETO:</enunciate>
+        <alternativeA>Colaboração com o cliente mais que negociação de contratos.</alternativeA>>
+        <alternativeB>Responder a mudanças mais que seguir um plano.</alternativeB>
+        <alternativeC>Indivíduos e interações mais que processos e ferramentas.</alternativeC>
+        <alternativeD>Desenvolvimento completo mais que funcionalidades segmentadas.</alternativeD>
+        <solution>4</solution>
+    </question>
+
+    <question>
+        <id>3</id>
+        <enunciate>Para o desenvolvimento de um projeto de software ser classificado como ágil, a equipe deve:</enunciate>
+        <alternativeA>Entregar periodicamente um software funcional e preferir comunicação em tempo real à documentos escritos.</alternativeA>>
+        <alternativeB>Produzir uma documentação detalhada ao final de cada etapa do processo.</alternativeB>
+        <alternativeC>Determinar minuciosamente os requisitos na fase inicial do projeto, e seguir o planejamento até o software estar pronto!.</alternativeC>
+        <alternativeD>Definir claramente as atividades de cada etapa segundo o planejado, conduzindo o desenvolvimento de forma disciplinada.</alternativeD>
+        <solution>1</solution>
+    </question>
+
+    <question>
+        <id>4</id>
+        <enunciate>A metodologia SCRUM é baseada em:</enunciate>
+        <alternativeA>Reuniões periódicas para discutir a resolução de problemas.</alternativeA>>
+        <alternativeB>Programação em pares.</alternativeB>
+        <alternativeC>Pequenos ciclos de planejamento, desenvolvimento e feedback.</alternativeC>
+        <alternativeD>Um processo iterativo das seguintes etapas: levantamento de requisitos, análise de requisitos, projeto, implementação, testes e implantação.</alternativeD>
+        <solution>3</solution>
+    </question>
+
+
+
+
+
+</resources>
