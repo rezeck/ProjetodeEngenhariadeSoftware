@@ -38,6 +38,7 @@ public class Question extends Activity implements View.OnClickListener{
 
         //collecting all questions in the database
         questionsList = dbHelper.GetQuestions();
+        Log.d("Debug", "There are " + questionsList.size() + " questions.");
         if (questionsList.isEmpty()){
             Log.e("Error", "Question List is empty");
         }
@@ -57,7 +58,6 @@ public class Question extends Activity implements View.OnClickListener{
         question = questionsList.get(rand.nextInt(questionsList.size()-1));
         //setting text for a question on the screen
         questionTxt.setText(question.getPergunta());
-
     }
 
     @Override
@@ -91,13 +91,21 @@ public class Question extends Activity implements View.OnClickListener{
     }
 
     private void NextQuestion(){
-        rank++;
-        questionsList.remove(question);
-        question = questionsList.get(rand.nextInt(questionsList.size()-1));
-        questionTxt.setText(question.getPergunta());
+            questionsList.remove(question);
+            if (!questionsList.isEmpty()) {
+                rank++;
+                int sizelist = questionsList.size() - 1;
+                int choice = 0;
+                if (sizelist != 0) choice = rand.nextInt(sizelist);
+                question = questionsList.get(choice);
+                questionTxt.setText(question.getPergunta());
+            }else{
+                Log.d("Debug", "Winner!");
+            }
     }
 
     private void GetRank(){
+        Log.d("Debug", "Ranking");
         //Intent intent = new Intent(this,/*Rank activity*/);
         //intent.add
         //startActivity(intent);
