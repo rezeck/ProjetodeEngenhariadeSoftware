@@ -36,7 +36,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String TABLE_QUESTIONS = "create table "
             + NAME_QUESTIONS
             + "("
-                + COLUMN_ID + " integer primary key autoincrement, "
+                + COLUMN_ID + " integer primary key, "
                 + COLUMN_QUESTION + " text not null,"
                 + COLUMN_CORRECT + " integer not null"
             +");";
@@ -95,7 +95,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                             "B - " + alternativeB + "\n" + "C - " + alternativeC + "\n" +
                             "D - " + alternativeD;
 
-                    InsertQuestion(db, q, Integer.parseInt(solution));
+                    InsertQuestion(db, q, Integer.parseInt(solution), Integer.parseInt(id));
                 }
             }
             db.close();
@@ -124,14 +124,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean InsertQuestion(SQLiteDatabase db, String question,  int correct){
+    public boolean InsertQuestion(SQLiteDatabase db, String question,  int correct, int id){
 
         ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_ID, id);
         contentValues.put(COLUMN_QUESTION, question);
         contentValues.put(COLUMN_CORRECT, correct);
 
         db.insert(NAME_QUESTIONS, null, contentValues);
-
         return true;
     }
 
