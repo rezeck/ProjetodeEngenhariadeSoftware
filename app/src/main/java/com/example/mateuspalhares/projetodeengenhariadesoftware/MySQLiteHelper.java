@@ -1,12 +1,17 @@
 package com.example.mateuspalhares.projetodeengenhariadesoftware;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +22,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public static final String NAME_QUESTIONS = "Perguntas";
     public static final String NAME_RANK = "Rank";
+
     public static final String COLUMN_NAME = "nome";
     public static final String COLUMN_SCORE = "pontuacao";
     public static final String COLUMN_ID = "_id";
@@ -34,6 +40,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 + COLUMN_QUESTION + " text not null,"
                 + COLUMN_CORRECT + " integer not null"
             +");";
+
     private static final String TABLE_RANK = "create table "
             + NAME_RANK
             + "("
@@ -42,19 +49,80 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_SCORE + " text not null"
             +");";
 
+    private Context context;
+
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
+        Log.d("Debug", "Constructor MySql");
+
+        XmlResourceParser parser = this.context.getResources().getXml(R.xml.questions);
+        SQLiteDatabase db = getWritableDatabase();
+
+        try {
+            while (parser.next() != XmlPullParser.END_TAG) {
+                if (parser.getEventType() != XmlPullParser.START_TAG) {
+                    continue;
+                }
+                String name = parser.getName();
+                if (name.equals("question")) {
+                    String id = null, enunciate = null,
+                            alternativeA = null, alternativeB = null,
+                            alternativeC = null, alternativeD = null,
+                            solution = null;
+
+                    while (parser.next() != XmlPullParser.END_TAG) {
+                        if (parser.getEventType() != XmlPullParser.START_TAG) {
+                            continue;
+                        }
+                        name = parser.getName();
+                        if (name.equals("id")) {
+                            id = readText(parser);
+                        } else if (name.equals("enunciate")) {
+                            enunciate = readText(parser);
+                        } else if (name.equals("alternativeA")) {
+                            alternativeA = readText(parser);
+                        } else if (name.equals("alternativeB")) {
+                            alternativeB = readText(parser);
+                        } else if (name.equals("alternativeC")) {
+                            alternativeC = readText(parser);
+                        } else if (name.equals("alternativeD")) {
+                            alternativeD = readText(parser);
+                        } else if (name.equals("solution")) {
+                            solution = readText(parser);
+                        }
+                    }
+                    String q = enunciate + "\n" + "A - " + alternativeA + "\n" +
+                            "B - " + alternativeB + "\n" + "C - " + alternativeC + "\n" +
+                            "D - " + alternativeD;
+
+                    InsertQuestion(db, q, Integer.parseInt(solution));
+                }
+            }
+            db.close();
+        }
+        catch (XmlPullParserException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onCreate(SQLiteDatabase database) {
+        Log.d("Debug", "OnCreateQuestions");
         database.execSQL(TABLE_QUESTIONS);
         database.execSQL(TABLE_RANK);
-        InsertQuestion(" Tendo em vista que o desenvolvimento em Cascata é o mais usado no desenvolvimento" +
+        /*
+            InsertQuestion(database, " Tendo em vista que o desenvolvimento em Cascata é o mais usado no desenvolvimento" +
                 " tradicional, quais das características a seguir NÃO representam uma desvantagem desse modelo " +
                 "segundo os princípios ágeis?\nA - O término de cada etapa do processo está associado à uma documetação padrão\n" +
                 "B - Torna o processo de desenvolvimento estruturado\nC - O cliente não participa do desenvovimento\nD - Ao longo do" +
-                " desenvolvimento, não é permitida a atualização ou redefinição de fases já finalizadas",2);
+                " desenvolvimento, não é permitida a atualização ou redefinição de fases já finalizadas", 2);
+        */
     }
 
     @Override
@@ -67,16 +135,20 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean InsertQuestion(String question,  int correct){
-        SQLiteDatabase db = this.getWritableDatabase();
+    public boolean InsertQuestion(SQLiteDatabase db, String question,  int correct){
+
+        Log.d("Debug", "insertQuestions");
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_QUESTION,question);
-        contentValues.put(COLUMN_CORRECT,correct);
-        db.insert(TABLE_QUESTIONS,null,contentValues);
+        contentValues.put(COLUMN_QUESTION, question);
+        contentValues.put(COLUMN_CORRECT, correct);
+
+        long id = db.insert(NAME_QUESTIONS, null, contentValues);
+        Log.d("Debug", "EndInsertQuestions "+id);
         return true;
     }
 
     public List<QuestionModel> GetQuestions(){
+        Log.d("Debug", "GetQuestions");
         SQLiteDatabase db = this.getReadableDatabase();
         List<QuestionModel> list = new ArrayList<QuestionModel>();
 
@@ -101,6 +173,16 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         question.setPergunta(cursor.getString(1));
         question.setCorreta(cursor.getInt(2));
         return question;
+    }
+
+    private String readText(XmlPullParser parser) throws IOException,
+            XmlPullParserException {
+        String result = "";
+        if (parser.next() == XmlPullParser.TEXT) {
+            result = parser.getText();
+            parser.nextTag();
+        }
+        return result;
     }
 
 }
