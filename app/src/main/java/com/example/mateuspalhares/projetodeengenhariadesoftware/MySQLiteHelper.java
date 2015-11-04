@@ -54,7 +54,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
-        Log.d("Debug", "Constructor MySql");
 
         XmlResourceParser parser = this.context.getResources().getXml(R.xml.questions);
         SQLiteDatabase db = getWritableDatabase();
@@ -102,27 +101,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             db.close();
         }
         catch (XmlPullParserException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        Log.d("Debug", "OnCreateQuestions");
         database.execSQL(TABLE_QUESTIONS);
         database.execSQL(TABLE_RANK);
-        /*
-            InsertQuestion(database, " Tendo em vista que o desenvolvimento em Cascata é o mais usado no desenvolvimento" +
-                " tradicional, quais das características a seguir NÃO representam uma desvantagem desse modelo " +
-                "segundo os princípios ágeis?\nA - O término de cada etapa do processo está associado à uma documetação padrão\n" +
-                "B - Torna o processo de desenvolvimento estruturado\nC - O cliente não participa do desenvovimento\nD - Ao longo do" +
-                " desenvolvimento, não é permitida a atualização ou redefinição de fases já finalizadas", 2);
-        */
     }
 
     @Override
@@ -137,18 +126,16 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public boolean InsertQuestion(SQLiteDatabase db, String question,  int correct){
 
-        Log.d("Debug", "insertQuestions");
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_QUESTION, question);
         contentValues.put(COLUMN_CORRECT, correct);
 
-        long id = db.insert(NAME_QUESTIONS, null, contentValues);
-        Log.d("Debug", "EndInsertQuestions "+id);
+        db.insert(NAME_QUESTIONS, null, contentValues);
+
         return true;
     }
 
     public List<QuestionModel> GetQuestions(){
-        Log.d("Debug", "GetQuestions");
         SQLiteDatabase db = this.getReadableDatabase();
         List<QuestionModel> list = new ArrayList<QuestionModel>();
 
@@ -175,8 +162,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return question;
     }
 
-    private String readText(XmlPullParser parser) throws IOException,
-            XmlPullParserException {
+    private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
         String result = "";
         if (parser.next() == XmlPullParser.TEXT) {
             result = parser.getText();
