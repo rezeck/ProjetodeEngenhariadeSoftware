@@ -30,6 +30,18 @@
         <solution>1</solution>
     </question>
 
+    <question>
+        <id>4</id>
+        <enunciate>A metodologia SCRUM é baseada em:</enunciate>
+        <alternativeA>Reuniões periódicas para discutir a resolução de problemas.</alternativeA>>
+        <alternativeB>Programação em pares.</alternativeB>
+        <alternativeC>Pequenos ciclos de planejamento, desenvolvimento e feedback.</alternativeC>
+        <alternativeD>Um processo iterativo das seguintes etapas: levantamento de requisitos, análise de requisitos, projeto, implementação, testes e implantação.</alternativeD>
+        <solution>3</solution>
+    </question>
+
+
+
 
 
 </resources>
