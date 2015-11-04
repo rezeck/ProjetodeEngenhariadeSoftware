@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <question>
         <id>1</id>
         <enunciate>Tendo em vista que o desenvolvimento em Cascata é o mais usado no desenvolvimento tradicional, quais das características a seguir NÃO representam uma desvantagem desse modelo segundo os princípios ágeis?</enunciate>
