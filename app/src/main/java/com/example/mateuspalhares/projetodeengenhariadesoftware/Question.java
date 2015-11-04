@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,14 +28,20 @@ public class Question extends Activity implements View.OnClickListener{
     private TextView questionTxt;
     int rank = 0;
     Random rand = new Random();
+
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState,  persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.perguntas);
 
         dbHelper = new MySQLiteHelper(this);
+
         //collecting all questions in the database
         questionsList = dbHelper.GetQuestions();
+        if (questionsList.isEmpty()){
+            Log.e("Error", "Question List is empty");
+        }
+
         //linking buttons/text with respectives id's
         btnA = (Button) findViewById(R.id.btnA);
         btnB = (Button) findViewById(R.id.btnB);
@@ -47,7 +54,6 @@ public class Question extends Activity implements View.OnClickListener{
         btnC.setOnClickListener(this);
         btnD.setOnClickListener(this);
         //choosing a question
-
         question = questionsList.get(rand.nextInt(questionsList.size()-1));
         //setting text for a question on the screen
         questionTxt.setText(question.getPergunta());
@@ -92,8 +98,8 @@ public class Question extends Activity implements View.OnClickListener{
     }
 
     private void GetRank(){
-        Intent intent = new Intent(this,/*Rank activity*/);
-        intent.add
-        startActivity(intent);
+        //Intent intent = new Intent(this,/*Rank activity*/);
+        //intent.add
+        //startActivity(intent);
     }
 }
