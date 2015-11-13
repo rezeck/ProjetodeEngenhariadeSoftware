@@ -40,8 +40,194 @@
         <solution>3</solution>
     </question>
 
+    <question>
+        <id>5</id>
+        <enunciate>Em relação ao SCRUM, marque a opção FALSA:</enunciate>
+        <alternativeA>Orienta como organizar o processo de desevolvimento e não como desenvolver o software.</alternativeA>>
+        <alternativeB>É um método de desenvolvimento ágil e portanto é pautado nos princípios ágeis.</alternativeB>
+        <alternativeC>Prevê a adaptação dos requisitos ao longo do processo desenvolviment.</alternativeC>
+        <alternativeD>O processo de desenvolvimento possui etapas focadas em atividades especializadas, que serão integradas ao final do processo para compor o software.</alternativeD>
+        <solution>4</solution>
+    </question>
 
+    <question>
+        <id>6</id>
+        <enunciate>A função do scrum master não é:</enunciate>
+        <alternativeA>Remover obstaculos que estão atrapalhando a equipe.</alternativeA>>
+        <alternativeB>Assegurar que a equipe respeite e siga os valores e as práticas do Scrum.</alternativeB>
+        <alternativeC>Chefiar a equipe, e atuar como lider do projeto.</alternativeC>
+        <alternativeD>Proteger a equipe assegurando que ela não se comprometa excessivamente com relação àquilo que é capaz de realizar durante um Sprint.</alternativeD>
+        <solution>3</solution>
+    </question>
 
+    <question>
+        <id>7</id>
+        <enunciate>O objetivo do daily scrum é:</enunciate>
+        <alternativeA>Disseminar o conhecimento sobre o que foi feito no dia anterior.</alternativeA>>
+        <alternativeB>Descrever as funcionalidades de maior prioridade para a equipe.</alternativeB>
+        <alternativeC>Identificar impedimentos.</alternativeC>
+        <alternativeD>Priorizar o trabalho do dia que se inicia.</alternativeD>
+        <solution>2</solution>
+    </question>
 
+    <question>
+        <id>8</id>
+        <enunciate>Quais as três partes básicas da equipe do scrum?</enunciate>
+        <alternativeA>Product Owner, Scrum Master, Scrum Team.</alternativeA>>
+        <alternativeB>Scrum lider, Product Boss, Product Team.</alternativeB>
+        <alternativeC>Team Owner, Scrum Master, Scrum Boss.</alternativeC>
+        <alternativeD>Product Boss, Product Owner, Product Team.</alternativeD>
+        <solution>1</solution>
+    </question>
+
+    <question>
+        <id>9</id>
+        <enunciate>Os participantes do Sprint Review tipicamente incluem:</enunciate>
+        <alternativeA>Somente o Product Owner e o Scrum Master.</alternativeA>>
+        <alternativeB>Somente o Scrum Master e o Scrum Team.</alternativeB>
+        <alternativeC>Somente o Product Owner e a gerência.</alternativeC>
+        <alternativeD>O Product Owner, o Scrum Team, o Scrum Master, gerência, clientes e engenheiros de outros projetos.</alternativeD>
+        <solution>4</solution>
+    </question>
+
+    <question>
+        <id>10</id>
+        <enunciate>Um Scrum Team típico tem:</enunciate>
+        <alternativeA>De 2 a 4 pessoas.</alternativeA>>
+        <alternativeB>De 6 a 10 pessoas.</alternativeB>
+        <alternativeC>No máximo 5 pessoas.</alternativeC>
+        <alternativeD>No mínimo 12 pessoas.</alternativeD>
+        <solution>2</solution>
+    </question>
+
+    <question>
+        <id>11</id>
+        <enunciate>Um Scrum Team tem a seguinte divisão funcional:</enunciate>
+        <alternativeA>Não existe necessariamente uma divisão funcional através de papéis tradicionais.</alternativeA>>
+        <alternativeB>Programadores e Designers.</alternativeB>
+        <alternativeC>Programadores e Analistas.</alternativeC>
+        <alternativeD>Designers e analista.</alternativeD>
+        <solution>1</solution>
+    </question>
+
+    <question>
+        <id>12</id>
+        <enunciate>O que é Scrum of Scrums?</enunciate>
+        <alternativeA>Nome dado para definir um conjunto de Scrum Masters.</alternativeA>>
+        <alternativeB>Um conjunto de 12 Scrum Team.</alternativeB>
+        <alternativeC>A principal abordagem para trabalhar com equipes grandes no Scrum.</alternativeC>
+        <alternativeD>A principal abordagem para trabalhar com equipes pequenas no Scrum</alternativeD>
+        <solution>3</solution>
+    </question>
+
+    <question>
+        <id>13</id>
+        <enunciate>O fato do Daily Scrum poder ter ouvintes de fora da equipe tem vantagem por que?</enunciate>
+        <alternativeA>Os ouvintes podem opinar para dar ideias.</alternativeA>>
+        <alternativeB>Os uvintes podem levar novos problemas para serem tratados no projeto.</alternativeB>
+        <alternativeC>Os ouvintes expoem ideias previamente criadas e comunicadas ao Product Owner.</alternativeC>
+        <alternativeD>Isso torna os Daily Scrums uma excelente forma para uma equipe disseminar informações sobre o estado do projeto.</alternativeD>
+        <solution>4</solution>
+    </question>
+
+    <question>
+        <id>14</id>
+        <enunciate>O fato do Daily Scrum poder ter ouvintes de fora da equipe tem vantagem por que?</enunciate>
+        <alternativeA>Os ouvintes podem opinar para dar ideias.</alternativeA>>
+        <alternativeB>Os uvintes podem levar novos problemas para serem tratados no projeto.</alternativeB>
+        <alternativeC>Os ouvintes expoem ideias previamente criadas e comunicadas ao Product Owner.</alternativeC>
+        <alternativeD>Isso torna os Daily Scrums uma excelente forma para uma equipe disseminar informações sobre o estado do projeto.</alternativeD>
+        <solution>4</solution>
+    </question>
+
+    <question>
+        <id>15</id>
+        <enunciate>Caso um desenvolvedor esteja com problemas com sua equipe de desenvolvimento, quem deve resolvê-lo?</enunciate>
+        <alternativeA>O Scrum Master, pois é um facilitador para a equipe de desenvolvimento.</alternativeA>>
+        <alternativeB>O Dono do Produto, pois ele é responsável pela equipe de desenvolvimento.</alternativeB>
+        <alternativeC>A própia equipe de desenvolvimento, pois é auto-gerenciável.</alternativeC>
+        <alternativeD>O responsável pela contratação e demissão de funcionários.</alternativeD>
+        <solution>3</solution>
+    </question>
+
+    <question>
+        <id>16</id>
+        <enunciate>A definição de preparado é:</enunciate>
+        <alternativeA>Item preparado para o desenvolvimento.</alternativeA>>
+        <alternativeB>Produto pronto para entrega.</alternativeB>
+        <alternativeC>Testes preparados para o código.</alternativeC>
+        <alternativeD>A equipe está preparada para a próxima sprint.</alternativeD>
+        <solution>1</solution>
+    </question>
+
+    <question>
+        <id>17</id>
+        <enunciate>Qual o papel do dono do produto?</enunciate>
+        <alternativeA>Garantir o entendimento do Backlog e dos valores esperados pelo cliente para toda a equipe.</alternativeA>>
+        <alternativeB>Identificar e solucionar impedimentos.</alternativeB>
+        <alternativeC>Escolher sozinho os itens a serem desenvolvidos na Sprint.</alternativeC>
+        <alternativeD>Desenvolver as reuniões de retrospectiva, revisão e diária.</alternativeD>
+        <solution>1</solution>
+    </question>
+
+    <question>
+        <id>18</id>
+        <enunciate>Quem determina como o trabalho da equipe de desenvolvimento deve ser realizado?</enunciate>
+        <alternativeA>O Scrum Master, pois é um facilitador para a equipe de desenvolvimento.</alternativeA>>
+        <alternativeB>A equipe de desenvolvimento.</alternativeB>
+        <alternativeC>O dono do produto, pois é responsável pela qualidade e entrega de valor do produto desenvolvido.</alternativeC>
+        <alternativeD>O desenvolvedor mais experiente do grupo.</alternativeD>
+        <solution>2</solution>
+    </question>
+
+    <question>
+        <id>19</id>
+        <enunciate>Sobre o planejamento poker, assinale a alternativa incorreta:</enunciate>
+        <alternativeA>É um método de planejamento para obter estimativas de tempo e esforço.</alternativeA>>
+        <alternativeB>Durante a atividade, o Scrum Master tem a tarefa de explicar o que deverá ser desenvolvido e o Dono do Produto é responsável por coordenar as tarefas.</alternativeB>
+        <alternativeC>Um desacordo durante a atividade deverá ser mediado pelo coordenador da atividade.</alternativeC>
+        <alternativeD>Todos os membros da equipe de desenvolvimento participam do planejamento poker.</alternativeD>
+        <solution>2</solution>
+    </question>
+
+    <question>
+        <id>20</id>
+        <enunciate>A definição de preparado é definida:</enunciate>
+        <alternativeA>Pela equipe de desenvolvimento.</alternativeA>>
+        <alternativeB>Pelo dono do produto.</alternativeB>
+        <alternativeC>Pelo Scrum Master.</alternativeC>
+        <alternativeD>Pelo cliente.</alternativeD>
+        <solution>1</solution>
+    </question>
+
+    <question>
+        <id>21</id>
+        <enunciate>Sobre o Scrum Master, assinale a alternativa correta.</enunciate>
+        <alternativeA>Toma decisões pelo time.</alternativeA>>
+        <alternativeB>Tenta encontrar disfunções e corrigilas com o objetivo de retirar obstáculos para a equipe de desenvolvimento.</alternativeB>
+        <alternativeC>Não é representante do time.</alternativeC>
+        <alternativeD>Guia e ensina ao time os valores que o cliente espera do produto.</alternativeD>
+        <solution>3</solution>
+    </question>
+
+    <question>
+        <id>22</id>
+        <enunciate>Sobre pontos de história, assinale a alternativa correta.</enunciate>
+        <alternativeA>São marcos importantes na história do desenvolvimendo do projeto.</alternativeA>>
+        <alternativeB>São identificados na reunião de revisão da sprint.</alternativeB>
+        <alternativeC>São pontos que identificam as diferentes versões liberadas do projeto.</alternativeC>
+        <alternativeD>É a medida de tempo e esforço das histórias do projeto.</alternativeD>
+        <solution>4</solution>
+    </question>
+
+    <question>
+        <id>23</id>
+        <enunciate>A definição de preparado é utilizada:</enunciate>
+        <alternativeA>Na reunião de retrospectiva.</alternativeA>>
+        <alternativeB>Na reunião diária.</alternativeB>
+        <alternativeC>No planejamento da sprint.</alternativeC>
+        <alternativeD>Na reunião de revisão.</alternativeD>
+        <solution>3</solution>
+    </question>
 
 </resources>
