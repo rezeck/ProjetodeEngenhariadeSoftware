@@ -7,7 +7,9 @@ import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Random;
@@ -15,7 +17,7 @@ import java.util.Random;
 /**
  * Created by mateuspalhares on 31/10/15.
  */
-public class Question extends Activity implements View.OnClickListener{
+public class Question extends Activity implements View.OnClickListener, NomeFragment.nameDialogListener{
 
 
     private MySQLiteHelper dbHelper;
@@ -26,6 +28,8 @@ public class Question extends Activity implements View.OnClickListener{
     private Button btnC;
     private Button btnD;
     private TextView questionTxt;
+    private EditText nomeRank;
+    private View dialogLayout;
     int rank = 0;
     Random rand = new Random();
 
@@ -43,7 +47,10 @@ public class Question extends Activity implements View.OnClickListener{
             Log.e("Error", "Question List is empty");
         }
 
+
         //linking buttons/text with respectives id's
+        dialogLayout = View.inflate(this,R.layout.dialog_name,null);
+        nomeRank =(EditText) dialogLayout.findViewById(R.id.username);
         btnA = (Button) findViewById(R.id.btnA);
         btnB = (Button) findViewById(R.id.btnB);
         btnC = (Button) findViewById(R.id.btnC);
@@ -106,8 +113,30 @@ public class Question extends Activity implements View.OnClickListener{
 
     private void GetRank(){
         Log.d("Debug", "Ranking");
-        //Intent intent = new Intent(this,/*Rank activity*/);
-        //intent.add
-        //startActivity(intent);
+        NomeFragment nome = new NomeFragment();
+        nome.show(getFragmentManager(),"nome");
+
+    }
+
+
+    @Override
+    public void onEnviarPressed() {
+        Intent intent = new Intent(Question.this, RankActivity.class);
+        Toast.makeText(this,nomeRank.getText().toString(),Toast.LENGTH_SHORT);
+        if(nomeRank.getText().toString().isEmpty()){
+            onCancelarPressed();
+        }
+        else{
+            intent.putExtra("nome",nomeRank.getText());
+            intent.putExtra("rank",rank);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onCancelarPressed() {
+        Intent intent = new Intent(Question.this, MainActivity.class);
+        intent.putExtra("flag",1);
+        startActivity(intent);
     }
 }

@@ -45,7 +45,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + NAME_RANK
             + "("
             + COLUMN_NAME + " text primary key, "
-            + COLUMN_QUESTION + " text not null,"
             + COLUMN_SCORE + " text not null"
             +");";
 
@@ -55,57 +54,52 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
 
+
+    }
+
+    public void InitiateQuestions() throws XmlPullParserException, IOException {
+        SQLiteDatabase db = this.getWritableDatabase();
         XmlResourceParser parser = this.context.getResources().getXml(R.xml.questions);
-        SQLiteDatabase db = getWritableDatabase();
-
-        try {
-            while (parser.next() != XmlPullParser.END_TAG) {
-                if (parser.getEventType() != XmlPullParser.START_TAG) {
-                    continue;
-                }
-                String name = parser.getName();
-                if (name.equals("question")) {
-                    String id = null, enunciate = null,
-                            alternativeA = null, alternativeB = null,
-                            alternativeC = null, alternativeD = null,
-                            solution = null;
-
-                    while (parser.next() != XmlPullParser.END_TAG) {
-                        if (parser.getEventType() != XmlPullParser.START_TAG) {
-                            continue;
-                        }
-                        name = parser.getName();
-                        if (name.equals("id")) {
-                            id = readText(parser);
-                        } else if (name.equals("enunciate")) {
-                            enunciate = readText(parser);
-                        } else if (name.equals("alternativeA")) {
-                            alternativeA = readText(parser);
-                        } else if (name.equals("alternativeB")) {
-                            alternativeB = readText(parser);
-                        } else if (name.equals("alternativeC")) {
-                            alternativeC = readText(parser);
-                        } else if (name.equals("alternativeD")) {
-                            alternativeD = readText(parser);
-                        } else if (name.equals("solution")) {
-                            solution = readText(parser);
-                        }
-                    }
-                    String q = enunciate + "\n" + "A - " + alternativeA + "\n" +
-                            "B - " + alternativeB + "\n" + "C - " + alternativeC + "\n" +
-                            "D - " + alternativeD;
-
-                    InsertQuestion(db, q, Integer.parseInt(solution), Integer.parseInt(id));
-                }
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.getEventType() != XmlPullParser.START_TAG) {
+                continue;
             }
-            db.close();
+            String name = parser.getName();
+            if (name.equals("question")) {
+                String id = null, enunciate = null,
+                        alternativeA = null, alternativeB = null,
+                        alternativeC = null, alternativeD = null,
+                        solution = null;
+
+                while (parser.next() != XmlPullParser.END_TAG) {
+                    if (parser.getEventType() != XmlPullParser.START_TAG) {
+                        continue;
+                    }
+                    name = parser.getName();
+                    if (name.equals("id")) {
+                        id = readText(parser);
+                    } else if (name.equals("enunciate")) {
+                        enunciate = readText(parser);
+                    } else if (name.equals("alternativeA")) {
+                        alternativeA = readText(parser);
+                    } else if (name.equals("alternativeB")) {
+                        alternativeB = readText(parser);
+                    } else if (name.equals("alternativeC")) {
+                        alternativeC = readText(parser);
+                    } else if (name.equals("alternativeD")) {
+                        alternativeD = readText(parser);
+                    } else if (name.equals("solution")) {
+                        solution = readText(parser);
+                    }
+                }
+                String q = enunciate + "\n" + "A - " + alternativeA + "\n" +
+                        "B - " + alternativeB + "\n" + "C - " + alternativeC + "\n" +
+                        "D - " + alternativeD;
+
+                InsertQuestion(db, q, Integer.parseInt(solution), Integer.parseInt(id));
+            }
         }
-        catch (XmlPullParserException e) {
-            e.printStackTrace();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        db.close();
     }
 
     @Override
@@ -132,6 +126,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_CORRECT, correct);
 
         db.insert(NAME_QUESTIONS, null, contentValues);
+        return true;
+    }
+
+    public boolean InsertRank(SQLiteOpenHelper db, String nome, int rank){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_NAME, nome);
+        contentValues.put(COLUMN_SCORE, rank);
+
         return true;
     }
 

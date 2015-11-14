@@ -26,28 +26,28 @@
         android:layout_weight="0.22">
 
         <Button
-            android:layout_width="180dp"
+            android:layout_width="170dp"
             android:layout_height="88dp"
             android:text="A"
             android:id="@+id/btnA"
             android:layout_gravity="left|top" />
 
         <Button
-            android:layout_width="180dp"
+            android:layout_width="170dp"
             android:layout_height="88dp"
             android:text="B"
             android:id="@+id/btnB"
             android:layout_gravity="right|top" />
 
         <Button
-            android:layout_width="180dp"
+            android:layout_width="170dp"
             android:layout_height="88dp"
             android:text="C"
             android:id="@+id/btnC"
             android:layout_gravity="left|bottom" />
 
         <Button
-            android:layout_width="180dp"
+            android:layout_width="170dp"
             android:layout_height="88dp"
             android:text="D"
             android:id="@+id/btnD"

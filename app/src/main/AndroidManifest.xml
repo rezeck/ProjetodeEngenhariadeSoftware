@@ -22,6 +22,10 @@
             android:name=".Perguntas"
             android:label="@string/title_activity_test" >
         </activity>
+        <activity
+            android:name=".RankActivity"
+            android:label="@string/title_activity_rank" >
+        </activity>
     </application>
 
 </manifest>

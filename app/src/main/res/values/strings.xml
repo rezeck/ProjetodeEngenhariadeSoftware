@@ -6,4 +6,8 @@
     <string name="jogar">Jogar</string>
     <string name="Creditos">Creditos</string>
     <string name="title_activity_test">test</string>
+    <string name="title_activity_rank">RankActivity</string>
+    <string name="username">Nome</string>
+    <string name="enviar">Enviar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

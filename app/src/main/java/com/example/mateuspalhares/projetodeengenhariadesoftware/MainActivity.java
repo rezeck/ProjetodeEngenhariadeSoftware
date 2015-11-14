@@ -2,6 +2,7 @@ package com.example.mateuspalhares.projetodeengenhariadesoftware;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,16 +10,33 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+
 
 public class MainActivity extends Activity {
 
     private Button creditos;
     private Button jogar;
+    private MySQLiteHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbHelper = new MySQLiteHelper(this);
+        Intent intent = getIntent();
+        if(intent.getExtras() == null) {
+            try {
+                dbHelper.InitiateQuestions();
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         creditos = (Button) findViewById(R.id.creditos);
         jogar = (Button) findViewById(R.id.jogar);
