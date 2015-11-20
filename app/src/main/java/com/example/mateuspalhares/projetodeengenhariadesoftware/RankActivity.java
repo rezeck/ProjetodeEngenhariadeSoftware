@@ -3,8 +3,10 @@ package com.example.mateuspalhares.projetodeengenhariadesoftware;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class RankActivity extends Activity {
@@ -13,12 +15,15 @@ public class RankActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
             String nome = (String) bundle.get("nome");
             int rank = (int) bundle.get("rank");
+            Log.d("Debug", nome + " " + rank);
         }
+
     }
 
 
