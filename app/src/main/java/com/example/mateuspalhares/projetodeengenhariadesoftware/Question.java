@@ -1,6 +1,8 @@
 package com.example.mateuspalhares.projetodeengenhariadesoftware;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -29,7 +31,6 @@ public class Question extends Activity implements View.OnClickListener, NomeFrag
     private Button btnD;
     private TextView questionTxt;
     private EditText nomeRank;
-    private View dialogLayout;
     int rank = 0;
     Random rand = new Random();
 
@@ -47,10 +48,6 @@ public class Question extends Activity implements View.OnClickListener, NomeFrag
             Log.e("Error", "Question List is empty");
         }
 
-
-        //linking buttons/text with respectives id's
-        dialogLayout = View.inflate(this,R.layout.dialog_name,null);
-        nomeRank =(EditText) dialogLayout.findViewById(R.id.username);
         btnA = (Button) findViewById(R.id.btnA);
         btnB = (Button) findViewById(R.id.btnB);
         btnC = (Button) findViewById(R.id.btnC);
@@ -108,27 +105,32 @@ public class Question extends Activity implements View.OnClickListener, NomeFrag
                 questionTxt.setText(question.getPergunta());
             }else{
                 Log.d("Debug", "Winner!");
+                GetRank();
             }
     }
 
     private void GetRank(){
-        Log.d("Debug", "Ranking");
         NomeFragment nome = new NomeFragment();
-        nome.show(getFragmentManager(),"nome");
-
+        nome.show(getFragmentManager(), "nome");
     }
 
 
     @Override
-    public void onEnviarPressed() {
+    public void onEnviarPressed(DialogFragment dialog) {
+        nomeRank = (EditText) dialog.getDialog().findViewById(R.id.username);
+
         Intent intent = new Intent(Question.this, RankActivity.class);
-        Toast.makeText(this,nomeRank.getText().toString(),Toast.LENGTH_SHORT);
+
+        //Toast.makeText(this, nomeRank.getText().toString(),Toast.LENGTH_SHORT);
+       // Log.d("Debug", nomeRank.getText().toString());
+
         if(nomeRank.getText().toString().isEmpty()){
             onCancelarPressed();
         }
         else{
-            intent.putExtra("nome",nomeRank.getText());
+            intent.putExtra("nome", nomeRank.getText().toString());
             intent.putExtra("rank",rank);
+            Log.d("Debug", "sending");
             startActivity(intent);
         }
     }

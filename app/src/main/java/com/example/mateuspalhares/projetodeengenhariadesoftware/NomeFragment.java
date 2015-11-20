@@ -28,14 +28,17 @@ public class NomeFragment extends DialogFragment {
                 .setPositiveButton(R.string.enviar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        nameListener.onEnviarPressed();
+                        nameListener.onEnviarPressed(NomeFragment.this);
                     }
                 })
                 .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        NomeFragment.this.getDialog().cancel();
+                        //NomeFragment.this.getDialog().cancel();
+                        nameListener.onCancelarPressed();
                     }
                 });
+
+        setCancelable(false);
         return builder.create();
 
     }
@@ -45,6 +48,7 @@ public class NomeFragment extends DialogFragment {
         super.onAttach(activity);
         try{
             nameListener = (nameDialogListener) activity;
+
         }catch (ClassCastException e){
             throw new ClassCastException(activity.toString()+"Tem que implementar nameDialogListener");
         }
@@ -58,7 +62,7 @@ public class NomeFragment extends DialogFragment {
     }
 
     public interface nameDialogListener{
-        public void onEnviarPressed();
+        public void onEnviarPressed(DialogFragment dialog);
         public void onCancelarPressed();
     }
 }
