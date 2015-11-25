@@ -37,7 +37,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + NAME_QUESTIONS
             + "("
                 + COLUMN_ID + " integer primary key, "
-                + COLUMN_QUESTION + " text not null,"
+            + COLUMN_QUESTION + " text not null,"
                 + COLUMN_CORRECT + " integer not null"
             +");";
 
@@ -45,7 +45,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + NAME_RANK
             + "("
             + COLUMN_NAME + " text primary key, "
-            + COLUMN_SCORE + " text not null"
+            + COLUMN_SCORE + " integer not null"
             +");";
 
     private Context context;
@@ -129,11 +129,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean InsertRank(SQLiteOpenHelper db, String nome, int rank){
+    public boolean InsertRank( String nome, int rank){
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, nome);
         contentValues.put(COLUMN_SCORE, rank);
 
+        db.insert(TABLE_RANK,null,contentValues);
         return true;
     }
 
@@ -156,12 +158,58 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    public List<Rank> GetRanks(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Rank> list = new ArrayList<Rank>();
+
+        Cursor res = db.rawQuery("select * from Rank ORDER BY pontuacao desc",null);
+        res.moveToFirst();
+
+        while(!res.isAfterLast()){
+            Rank rank = cursorToRank(res);
+            list.add(rank);
+            res.moveToNext();
+        }
+        res.close();
+        db.close();
+        return list;
+    }
+
+    public boolean IsQuestionsEmpty(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<QuestionModel> list = new ArrayList<QuestionModel>();
+
+        Cursor res =  db.rawQuery( "select COUNT(_id) from Perguntas ", null );
+        res.moveToFirst();
+
+        if(res.getInt(0) == 0)
+        {
+
+            res.close();
+
+            db.close();
+            return true;
+        }
+
+        res.close();
+
+        db.close();
+        return true;
+    }
+
     private QuestionModel cursorToQuestion(Cursor cursor) {
         QuestionModel question = new QuestionModel();
         question.setId(cursor.getLong(0));
         question.setPergunta(cursor.getString(1));
         question.setCorreta(cursor.getInt(2));
         return question;
+    }
+
+    private Rank cursorToRank(Cursor cursor){
+        Rank rank = new Rank();
+        rank.setNome(cursor.getString(0));
+        rank.setRank(cursor.getInt(1));
+        return rank;
     }
 
     private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {

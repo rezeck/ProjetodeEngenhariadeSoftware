@@ -6,23 +6,51 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.mateuspalhares.projetodeengenhariadesoftware.R.*;
 
 
 public class RankActivity extends Activity {
+    private Rank rank = new Rank();
+
+    private MySQLiteHelper db;
+    private ArrayList<Rank> arraylstRank = new ArrayList<Rank>();
+    private ListView listView;
+    private RankAdapter rankAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rank);
+        setContentView(layout.activity_rank);
+        listView = (ListView)findViewById(R.id.listView);
+
+        db = new MySQLiteHelper(this);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
-            String nome = (String) bundle.get("nome");
-            int rank = (int) bundle.get("rank");
-            Log.d("Debug", nome + " " + rank);
+            rank.setNome((String) bundle.get("nome"));
+            rank.setRank((int) bundle.get("rank"));
+            db.InsertRank(rank.getNome(), rank.getRank());
         }
+
+
+
+        List<Rank> ranks = db.GetRanks();
+        for(Rank rank : ranks){
+            arraylstRank.add(rank);
+        }
+
+        rankAdapter = new RankAdapter(this, R.layout.display_rank_list,arraylstRank);
+        listView.setAdapter(rankAdapter);
+
+
 
     }
 

@@ -28,15 +28,16 @@ public class MainActivity extends Activity {
 
         dbHelper = new MySQLiteHelper(this);
         Intent intent = getIntent();
-        if(intent.getExtras() == null) {
-            try {
-                dbHelper.InitiateQuestions();
-            } catch (XmlPullParserException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        /* Run only once, then comment again
+
+        try {
+            dbHelper.InitiateQuestions();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
 
         creditos = (Button) findViewById(R.id.creditos);
         jogar = (Button) findViewById(R.id.jogar);

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:id="@+id/posicao"
+        android:textSize="30dp"
+        android:paddingLeft="10dp"
+        android:gravity="center|center_vertical"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nome"
+        android:id="@+id/rank_nome"
+        android:textSize="30dp"
+        android:paddingLeft="10dp"
+        android:gravity="center|center_vertical"
+        android:paddingTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.51" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="23"
+        android:id="@+id/rank"
+        android:textSize="30dp"
+        android:paddingLeft="10dp"
+        android:gravity="center|center_vertical"
+        android:paddingTop="5dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/coroa"
+        android:adjustViewBounds="false"
+        android:baselineAlignBottom="false" />
+</LinearLayout>

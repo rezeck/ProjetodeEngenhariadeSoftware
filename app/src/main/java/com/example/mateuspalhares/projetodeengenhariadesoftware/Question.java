@@ -122,7 +122,6 @@ public class Question extends Activity implements View.OnClickListener, NomeFrag
         Intent intent = new Intent(Question.this, RankActivity.class);
 
         //Toast.makeText(this, nomeRank.getText().toString(),Toast.LENGTH_SHORT);
-       // Log.d("Debug", nomeRank.getText().toString());
 
         if(nomeRank.getText().toString().isEmpty()){
             onCancelarPressed();
