@@ -37,21 +37,25 @@ public class RankActivity extends Activity {
         if(bundle!=null){
             rank.setNome((String) bundle.get("nome"));
             rank.setRank((int) bundle.get("rank"));
+            Log.d("Debug", "inserindo no rank");
             db.InsertRank(rank.getNome(), rank.getRank());
         }
 
 
 
         List<Rank> ranks = db.GetRanks();
+        if (ranks.isEmpty()){
+            Log.e("Error", "Rank List is empty");
+        }
+        Log.d("Debug", "pegou ranks " + ranks.size());
         for(Rank rank : ranks){
             arraylstRank.add(rank);
         }
+        Log.d("Debug", "Colocou no array " + arraylstRank.size());
 
-        rankAdapter = new RankAdapter(this, R.layout.display_rank_list,arraylstRank);
+        rankAdapter = new RankAdapter(this, R.layout.display_rank_list, arraylstRank);
         listView.setAdapter(rankAdapter);
-
-
-
+        Log.d("Debug", "Funcionou");
     }
 
 

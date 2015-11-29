@@ -135,7 +135,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_NAME, nome);
         contentValues.put(COLUMN_SCORE, rank);
 
-        db.insert(TABLE_RANK,null,contentValues);
+
+        //db.insert(TABLE_RANK,null,contentValues);
+        db.insert(NAME_RANK, null, contentValues);
+        Log.d("Debug", "inseriu no bd");
         return true;
     }
 
