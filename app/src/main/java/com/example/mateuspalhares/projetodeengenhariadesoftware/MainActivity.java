@@ -2,9 +2,7 @@ package com.example.mateuspalhares.projetodeengenhariadesoftware;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,7 +26,7 @@ public class MainActivity extends Activity {
 
         dbHelper = new MySQLiteHelper(this);
         Intent intent = getIntent();
-        /* Run only once, then comment again
+        //Run only once, then comment again
 
         try {
             dbHelper.InitiateQuestions();
@@ -36,7 +34,7 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
 
 
         creditos = (Button) findViewById(R.id.creditos);

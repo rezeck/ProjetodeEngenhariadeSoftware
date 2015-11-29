@@ -7,13 +7,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.mateuspalhares.projetodeengenhariadesoftware.R.*;
+import static com.example.mateuspalhares.projetodeengenhariadesoftware.R.layout;
 
 
 public class RankActivity extends Activity {
@@ -37,6 +35,8 @@ public class RankActivity extends Activity {
         if(bundle!=null){
             rank.setNome((String) bundle.get("nome"));
             rank.setRank((int) bundle.get("rank"));
+            Log.i("nome", (String) bundle.get("nome"));
+            Log.i("rank", bundle.get("rank").toString());
             db.InsertRank(rank.getNome(), rank.getRank());
         }
 
