@@ -2,8 +2,6 @@ package com.example.mateuspalhares.projetodeengenhariadesoftware;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,9 +48,9 @@ public class RankAdapter extends ArrayAdapter<Rank> {
         }
 
         Rank rank = list.get(position);
-        holder.posicao.setText(position);
+        holder.posicao.setText(""+position);
         holder.nome.setText(rank.getNome());
-        holder.rank.setText(String.valueOf(rank.getRank()));
+        holder.rank.setText(""+rank.getRank());
         if(position == 0)
             holder.imgIcon.setImageResource(R.drawable.winner);
 

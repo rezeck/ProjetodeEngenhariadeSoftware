@@ -1,8 +1,5 @@
 package com.example.mateuspalhares.projetodeengenhariadesoftware;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.XmlResourceParser;
@@ -10,6 +7,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,8 +44,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String TABLE_RANK = "create table "
             + NAME_RANK
             + "("
-            + COLUMN_NAME + " text primary key, "
-            + COLUMN_SCORE + " integer not null"
+            + COLUMN_NAME + " text, "
+            + COLUMN_SCORE + " integer"
             +");";
 
     private Context context;
@@ -135,10 +135,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_NAME, nome);
         contentValues.put(COLUMN_SCORE, rank);
 
+<<<<<<< HEAD
 
         //db.insert(TABLE_RANK,null,contentValues);
         db.insert(NAME_RANK, null, contentValues);
         Log.d("Debug", "inseriu no bd");
+=======
+        db.insert(NAME_RANK,null,contentValues);
+>>>>>>> 0031994a3d553a0497054f5e60531fca5aab2570
         return true;
     }
 
