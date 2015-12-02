@@ -3,7 +3,8 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/bg2_8">
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -17,27 +18,27 @@
         <TextView
             android:layout_width="226dp"
             android:layout_height="63dp"
-            android:text="Jogo de Perguntas"
             android:id="@+id/jogo"
             android:layout_gravity="center_horizontal|top"
             android:textStyle="bold"
             android:textSize="26dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:background="@drawable/logo_cinza" />
 
         <Button
             android:layout_width="196dp"
             android:layout_height="74dp"
-            android:text="@string/jogar"
             android:id="@+id/jogar"
             android:layout_gravity="center"
-            android:onClick="onClick" />
+            android:onClick="onClick"
+            android:background="@drawable/ciano_jogar" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Creditos"
             android:id="@+id/creditos"
-            android:layout_gravity="right|bottom" />
+            android:layout_gravity="right|bottom"
+            android:background="@drawable/ciano_creditos" />
     </FrameLayout>
 
 </RelativeLayout>

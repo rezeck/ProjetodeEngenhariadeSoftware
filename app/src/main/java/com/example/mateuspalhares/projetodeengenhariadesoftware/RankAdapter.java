@@ -51,8 +51,9 @@ public class RankAdapter extends ArrayAdapter<Rank> {
         holder.posicao.setText(""+position);
         holder.nome.setText(rank.getNome());
         holder.rank.setText(""+rank.getRank());
+        /*
         if(position == 0)
-            holder.imgIcon.setImageResource(R.drawable.winner);
+            holder.imgIcon.setImageResource(R.drawable.trofeu);*/
 
         return row;
     }

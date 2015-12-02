@@ -5,53 +5,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    tools:context="com.example.mateuspalhares.projetodeengenhariadesoftware.Question">
+    tools:context="com.example.mateuspalhares.projetodeengenhariadesoftware.Question"
+    android:background="@drawable/bg2_8">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/txtQuestion"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.77"
+        android:layout_weight="0.99"
         android:textSize="18dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="151dp"
         android:layout_gravity="bottom">
 
         <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="A"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
             android:id="@+id/btnA"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/ciano_a"
+            android:layout_marginLeft="20dp" />
 
         <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="B"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
             android:id="@+id/btnB"
             android:layout_gravity="right|top"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/ciano_b"
+            android:layout_marginRight="20dp" />
 
         <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="C"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
             android:id="@+id/btnC"
             android:layout_gravity="left|bottom"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/ciano_c"
+            android:layout_marginLeft="20dp" />
 
         <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="D"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
             android:id="@+id/btnD"
             android:layout_gravity="right|bottom"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/ciano_d"
+            android:layout_weight="0.05"
+            android:layout_marginRight="20dp" />
 
     </FrameLayout>
 
