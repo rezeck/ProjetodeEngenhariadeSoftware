@@ -40,6 +40,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/coroa"
-        android:adjustViewBounds="false"
+        android:adjustViewBounds="true"
         android:baselineAlignBottom="false" />
 </LinearLayout>

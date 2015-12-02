@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -21,13 +23,15 @@ public class RankActivity extends Activity {
     private ArrayList<Rank> arraylstRank = new ArrayList<Rank>();
     private ListView listView;
     private RankAdapter rankAdapter;
+    private Button novoJogo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_rank);
         listView = (ListView)findViewById(R.id.listView);
-
+        novoJogo = (Button) findViewById(R.id.novamente);
         db = new MySQLiteHelper(this);
 
         Intent intent = getIntent();
@@ -35,12 +39,6 @@ public class RankActivity extends Activity {
         if(bundle!=null){
             rank.setNome((String) bundle.get("nome"));
             rank.setRank((int) bundle.get("rank"));
-<<<<<<< HEAD
-            Log.d("Debug", "inserindo no rank");
-=======
-            Log.i("nome", (String) bundle.get("nome"));
-            Log.i("rank", bundle.get("rank").toString());
->>>>>>> 0031994a3d553a0497054f5e60531fca5aab2570
             db.InsertRank(rank.getNome(), rank.getRank());
         }
 
@@ -58,7 +56,15 @@ public class RankActivity extends Activity {
 
         rankAdapter = new RankAdapter(this, R.layout.display_rank_list, arraylstRank);
         listView.setAdapter(rankAdapter);
-        Log.d("Debug", "Funcionou");
+
+        novoJogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(RankActivity.this,Question.class);
+                startActivity(intent1);
+
+            }
+        });
     }
 
 
